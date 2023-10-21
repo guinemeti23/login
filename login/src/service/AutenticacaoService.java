@@ -3,7 +3,15 @@ package service;
 import model.Recurso;
 import model.Usuario;
 
-public class AutenticacaoService {
+public abstract class AutenticacaoService {
+
+    protected Usuario usuario;
+
+    public AutenticacaoService(Usuario usuario) {this.Usuario = usuario;}
+
+    public abstract String autenticar();
+    
+
     public String autenticar(Usuario usuario, String senha, Recurso recurso){
         if (!usuario.getSenha().equals(senha)){
             return "Senha inválida";
